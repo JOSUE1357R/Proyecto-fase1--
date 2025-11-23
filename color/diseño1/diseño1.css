@@ -1,0 +1,238 @@
+:root {
+    --bg: rgb(240, 240, 240);       
+    --text: rgb(51, 51, 51);        
+    --primario: rgb(255, 140, 0);   
+    --oscuro: rgb(34, 34, 34);      
+    --sub: rgb(102, 102, 102);      
+    --tarjeta: rgb(255, 255, 255);  
+    --corazon: rgb(255, 99, 71);    
+
+    --s-btn-base: 48px;     
+    --s-btn-cat: 60px;      
+    --s-btn-like: 35px;     
+    --s-btn-det: 55px;      
+
+    --f-btn: 24px;          
+    --f-h1: 35px;           
+    --f-h2: 30px;           
+    --f-h3: 18px;           
+    --f-slogan: 14px;       
+    --f-precio: 16px;       
+    --f-total: 32px;        
+    --f-desc: 13px;         
+    --f-tiempo: 16px;       
+}
+
+* {
+    margin: 0px; 
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif; 
+}
+img { max-width: 100%; height: auto; display: block; }
+
+body {
+    display: grid;
+    grid-template-columns: 400px auto; 
+    grid-template-areas: "menu det";
+    min-height: 100vh;
+    background-color: var(--bg);
+    padding: 20px;
+    justify-content: center;
+    align-content: center;
+    color: var(--text);
+}
+
+.caja { 
+    height: 90vh; 
+    overflow-y: auto;
+    border-radius: 10px; 
+    padding: 40px 30px;
+    position: relative;
+}
+.menu { 
+    grid-area: menu;
+    background: var(--tarjeta); 
+    padding-top: 30px; 
+}
+.det { 
+    grid-area: det;
+    background: rgb(255, 255, 255); 
+}
+
+.btn, .nav > div { 
+    background: var(--bg);
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer; transition: all 0.3s ease; line-height: 1; font-weight: bold; 
+    font-size: var(--f-btn);
+    border: 1px solid var(--sub); 
+}
+.btn:hover:not(.carro) { 
+    background: var(--sub); 
+    color: white;
+}
+.btn.base, .nav > div { 
+    width: var(--s-btn-base); height: var(--s-btn-base); 
+}
+.btn.cat { 
+    width: var(--s-btn-cat); height: var(--s-btn-cat); 
+}
+
+.cabeza { 
+    display: flex; justify-content: space-between; margin-bottom: 25px;
+}
+.menu .cabeza { margin-bottom: 20px; }
+
+.carro { 
+    background-color: var(--oscuro) !important;
+    color: rgb(255, 255, 255) !important; 
+    position: absolute; right: 30px; top: 30px; z-index: 20; 
+    border: none;
+}
+.carro:hover { 
+    background-color: var(--primario) !important; 
+    color: var(--oscuro) !important;
+}
+
+.tit { font-size: var(--f-h1); font-weight: 700; margin-bottom: 5px; } 
+.slogan { font-size: var(--f-slogan); color: var(--sub); margin-bottom: 30px; } 
+
+.barra { display: flex; gap: 15px; margin-bottom: 40px; margin-left: -5px; }
+.item.activo .btn {
+    background: var(--primario) !important; 
+    color: var(--oscuro); 
+    border: none;
+}
+.item:not(.activo) .btn {
+    background-color: var(--oscuro) !important;
+    color: rgb(255, 255, 255) !important; 
+    border: none;
+}
+.item:not(.activo) .btn:hover { 
+    background: var(--primario) !important; 
+    color: var(--oscuro) !important;
+}
+
+.lista {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    padding-bottom: 80px; 
+}
+
+.tarjeta {
+    background: var(--tarjeta);
+    border-radius: 10px;
+    padding: 15px; 
+    position: relative;
+    padding-top: 80px; 
+    min-height: 200px; 
+    text-align: center;
+    border: 1px solid var(--bg); 
+}
+.tarjeta > div:nth-child(1) { 
+    position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
+    width: 120px; height: 120px;
+    background-color: rgb(255, 255, 255); 
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
+    border-radius: 50%; overflow: hidden;
+    border: 5px solid white; 
+}
+.tarjeta img { border-radius: 50%; }
+.tarjeta > div:nth-child(2) { margin-top: 10px; } 
+
+.tarjeta h3 { font-size: var(--f-h3); font-weight: bold; margin-bottom: 5px; } 
+.desc { font-size: var(--f-desc); color: var(--sub); margin-bottom: 10px; } 
+.precio { font-size: var(--f-precio); font-weight: bold; color: var(--text); } 
+
+.gusta { 
+    width: var(--s-btn-like); height: var(--s-btn-like);
+    font-size: 19px; 
+    color: var(--corazon); 
+    position: absolute; bottom: 15px; right: 15px;
+    background: var(--bg); 
+    border: 1px solid var(--sub); 
+}
+
+.tarjeta.grande {
+    grid-column: span 2; display: flex; align-items: center; justify-content: space-between;
+    padding: 25px; padding-top: 25px; min-height: auto; text-align: left;
+}
+.tarjeta.grande > div:nth-child(1) { 
+    position: relative; top: auto; left: auto; transform: none;
+    width: 160px; height: 160px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); 
+    margin-left: 20px; 
+    border: 5px solid white; 
+}
+.tarjeta.grande > div:nth-child(2) { flex-grow: 1; margin-top: 0px; }
+.tarjeta.grande .gusta { position: static; margin-left: 15px; }
+
+.nav { 
+    position: absolute; bottom: 0px; left: 0px; right: 0px;
+    height: 75px;
+    background: var(--oscuro);
+    border-radius: 0px 0px 10px 10px; 
+    display: flex; justify-content: space-around; align-items: center; z-index: 10;
+}
+.nav > div {
+    color: rgb(204, 204, 204); background: transparent; 
+    border: none;
+}
+.nav > .activo { 
+    background-color: var(--primario); 
+    color: var(--oscuro); 
+}
+
+.det .cabeza { margin-bottom: 25px; }
+
+.foto { 
+    max-height: 400px; overflow: hidden; margin-bottom: 30px;
+}
+.foto img { 
+    border-radius: 10px; 
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2); 
+}
+
+.det .tit { font-size: var(--f-h2); } 
+
+.tiempo { 
+    float: right;
+    padding: 8px 18px; border-radius: 25px;
+    background: var(--primario); 
+    color: var(--oscuro);
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: var(--f-tiempo); 
+    font-weight: bold;
+}
+.det p { margin-top: 10px; }
+
+.pie { 
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 30px 5px 10px; margin-top: 40px;
+}
+.total { font-size: var(--f-total); font-weight: bold; } 
+.label { color: var(--sub); } 
+
+.gusta.det { 
+    width: var(--s-btn-det); height: var(--s-btn-det); 
+    font-size: var(--f-btn); 
+    color: var(--corazon);
+    margin-right: 15px;
+    position: static; 
+    border: 1px solid var(--sub);
+}
+
+.add { 
+    background-color: var(--oscuro); color: rgb(255, 255, 255);
+    border: none; padding: 18px 30px; border-radius: 35px;
+    font-weight: bold; display: flex; align-items: center; gap: 8px;
+    cursor: pointer; 
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); 
+    font-size: var(--f-btn); 
+}
+.add:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}

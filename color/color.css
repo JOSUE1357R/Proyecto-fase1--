@@ -1,0 +1,77 @@
+
+:root {
+    --bordes_fon: rgb(81, 179, 224); 
+    --texto: rgb(255, 255, 255); 
+   } 
+body {
+    font-family: "Permanent Marker", cursive;
+    font-weight: 200;
+    font-style: normal;
+    align-items: center;
+    background: url(../img/dino.jpg);
+    background-size: 1900px auto;
+
+}
+
+
+
+
+
+.Principal {
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.Botones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px ;
+}
+
+.Iconos {
+    font-size: 80px; 
+    margin-bottom: 9px;
+}
+
+.btn {
+    text-decoration: none;
+    color: var(--texto);
+    padding: 10px 20px;
+    border: 2px solid var(--bordes_fon);
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    background-color: var(--bordes_fon);
+    color: rgb(255, 255, 255); 
+}
+
+.flecha {
+    margin-left: 10px;
+    font-size: 100%;
+    line-height: 1;
+    transition: margin-left 0.3s;
+}
+
+.btn:hover .flecha {
+    margin-left: 40px;
+}
+@media (max-width: 768px) {
+
+    .Iconos {
+        font-size: 80px; 
+    }
+
+    .btn {
+        font-size: 20px;
+        padding: 15px;
+    }
+}
