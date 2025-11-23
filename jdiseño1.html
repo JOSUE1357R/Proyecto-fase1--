@@ -1,113 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>diseño1</title>
-    <link rel="stylesheet" href="./color/diseño1/diseño1.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>American Burguer</title>
+  <link rel="stylesheet" href="./color/diseño1/diseño1.css" />
 </head>
 <body>
-    <aside class="caja menu" id="menu-view">
-        <header class="cabeza">
-            <div class="btn base">
-                &#9776; 
-            </div>
-            <div class="btn base carro">
-                🛒 
-            </div>
-        </header>
 
-        <h1 class="tit">AMERICAN BURGUER</h1>
-        <p class="slogan">El mejor sabor en Potosí, Bolivia</p>
+  <aside class="panel-izquierdo">
+    <header class="encabezado">
+      <h1 class="tit">AMERICAN BURGUER</h1>
+      <p class="slogan">El mejor sabor en Potosí, Bolivia</p>
+    </header>
 
-        <div class="barra">
-            <div class="item activo">
-                <div class="btn cat">🍔</div>
-            </div>
-            <div class="item">
-                <div class="btn cat">🍟</div>
-            </div>
-            <div class="item">
-                <div class="btn cat">🥤</div>
-            </div>
-            <div class="item">
-                <div class="btn cat">🍗</div>
-            </div>
-        </div>
+    <nav class="categorias">
+      <button class="btn cat activo">🍔</button>
+      <button class="btn cat">🍟</button>
+      <button class="btn cat">🥤</button>
+      <button class="btn cat">🍗</button>
+    </nav>
 
-        <div class="lista">
-            <div class="tarjeta" data-plato="clasica">
-                <div><img src="./img/diseño1/america.jpg" alt="" ></div>
-                <div>
-                    <h3>Hamburguesa Clásica</h3>
-                    <span class="precio">Bs 20.00</span>
-                </div>
-                <div class="btn gusta">&#10084;</div>
-            </div>
-
-            <div class="tarjeta" data-plato="papas">
-                <div><img src="./img/diseño1/papas.jpg" alt=""></div>
-                <div>
-                    <h3>Papas Fritas XL</h3>
-                    <p class="desc">Extra grandes, extra crujientes.</p>
-                    <span class="precio">Bs 10.00</span>
-                </div>
-                <div class="btn gusta">&#10084;</div>
-            </div>
-
-            <div class="tarjeta grande" data-plato="potosina">
-                <div><img src="./img/diseño1/potosina.jpg" alt=""></div>
-                <div>
-                    <h3>American Burguer Potosina</h3>
-                    <p class="desc">Nuestra Doble Queso Americana con extra de tocino crujiente, la ...</p>
-                    <span class="precio">Bs 35.00</span>
-                </div>
-                <div class="btn gusta">&#10084;</div>
-            </div>
-        </div>
-        
-        <footer class="nav">
-            <div class="btn activo">🏠</div>
-            <div class="btn">💳</div>
-            <div class="btn">💬</div>
-            <div class="btn">👤</div>
-        </footer>
-    </aside>
-
-    <main class="caja det" id="detail-view">
-        <header class="cabeza">
-            <div class="btn base">&#9664;</div>
-            <div class="btn base">&#x22EF;</div>
-        </header>
-        
+    <section class="productos">
+      <div class="tarjeta">
+        <img src="./img/diseño1/america.jpg" alt="Hamburguesa Clásica" />
         <div>
-            <div class="foto">
-                <img src="./img/diseño1/potosina.jpg" alt="">
-            </div>
-
-            <div>
-                <h2 class="tit">American Burguer Potosina</h2>
-                <div class="tiempo">
-                    ⏰ 15 Mins
-                </div>
-                <p>
-                    Nuestra Doble Queso Americana con extra de tocino crujiente, la favorita de Potosí. Servida con salsa BBQ.
-                </p>
-            </div>
-
-            <div class="pie">
-                <div>
-                    <p class="label">Total a Pagar</p>
-                    <span class="total">Bs 35.00</span>
-                </div>
-                <div>
-                    <div class="btn gusta det">&#10084;</div>
-                    <button class="add">
-                        Añadir al Carro ➕
-                    </button>
-                </div>
-            </div>
+          <h3>Hamburguesa Clásica</h3>
+          <span class="precio">Bs 20.00</span>
         </div>
-    </main>
+        <div class="btn gusta">&#10084;</div>
+      </div>
+
+      <div class="tarjeta">
+        <img src="./img/diseño1/papas.jpg" alt="Papas Fritas XL" />
+        <div>
+          <h3>Papas Fritas XL</h3>
+          <p class="desc">Extra grandes, extra crujientes.</p>
+          <span class="precio">Bs 10.00</span>
+        </div>
+        <div class="btn gusta">&#10084;</div>
+      </div>
+
+      <div class="tarjeta activo">
+        <img src="./img/diseño1/potosina.jpg" alt="American Burguer Potosina" />
+        <div>
+          <h3>American Burguer Potosina</h3>
+          <p class="desc">Nuestra Doble Queso Americana con extra de tocino crujiente, la ...</p>
+          <span class="precio">Bs 35.00</span>
+        </div>
+        <div class="btn gusta">&#10084;</div>
+      </div>
+    </section>
+
+    <footer class="nav">
+      <button class="btn nav-btn activo"><a href="index.html"></a>🏠</button>
+      <button class="btn nav-btn">💳</button>
+      <button class="btn nav-btn">💬</button>
+      <button class="btn nav-btn">👤</button>
+    </footer>
+  </aside>
+
+
+  <main class="panel-derecho">
+    <div class="carro-btn">🛒</div>
+
+    <div class="imagen-plato">
+      <img src="./img/diseño1/potosina.jpg" alt="American Burguer Potosina" />
+    </div>
+
+    <section class="detalle">
+      <h2 class="tit">American Burguer Potosina</h2>
+      <div class="tiempo">⏰ 15 Mins</div>
+      <p>
+        Nuestra Doble Queso Americana con extra de tocino crujiente, la favorita de Potosí. Servida con salsa BBQ.
+      </p>
+    </section>
+
+    <section class="pie">
+      <div>
+        <p class="label">Total a Pagar</p>
+        <span class="total">Bs 35.00</span>
+      </div>
+      <div class="acciones">
+        <button class="btn gusta">&#10084;</button>
+        <button class="add">Añadir al Carro ➕</button>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

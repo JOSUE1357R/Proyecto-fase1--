@@ -1,0 +1,269 @@
+:root {
+  --fondo: #ffffff;
+  --gris-oscuro: #2e3238;
+  --naranja: #ff9472;
+  --gris-claro: #f4f4f4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--gris-claro);
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "hero-text hero-img"
+    "productos sidebar"
+    "galeria galeria"
+    "footer footer";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 500px auto auto auto;
+  gap: 0;
+}
+
+.cabeza {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+.menu a {
+  text-decoration: none;
+  color: #666;
+  margin: 0 15px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.iconos {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.hero-texto {
+  grid-area: hero-text;
+  background: var(--gris-oscuro);
+  color: white;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-texto h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+.hero-texto p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+.botones {
+  display: flex;
+  gap: 10px;
+}
+
+.hero-foto {
+  grid-area: hero-img;
+  position: relative;
+  background: var(--gris-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.hero-foto img {
+  max-width: 90%;
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.cuadro-flotante {
+  position: absolute;
+  top: 30px;
+  left: -40px;
+  width: 120px;
+  height: 120px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.cuadro-flotante img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.btn-circulo {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  background: var(--naranja);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.medio-productos {
+  grid-area: productos;
+  padding: 40px;
+  display: grid;
+  grid-template-rows: 120px 1fr;
+  gap: 20px;
+}
+.fila-arriba {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.mini {
+  background: var(--gris-claro);
+  border: 1px solid #eee;
+}
+.mini img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+.foto-ancha img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.medio-sidebar {
+  grid-area: sidebar;
+  background: var(--gris-oscuro);
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.grid-cuadritos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 40px);
+  gap: 5px;
+  margin: 20px 0;
+}
+.grid-cuadritos div {
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+}
+
+.tira-galeria {
+  grid-area: galeria;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.item-foto img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+.item-texto {
+  background: white;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.item-texto h3 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.item-texto p {
+  font-size: 11px;
+  color: #888;
+}
+
+.pie-pagina {
+  grid-area: footer;
+  padding: 40px;
+  background: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+.pie-col1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+.tags span {
+  background: var(--gris-claro);
+  padding: 5px 10px;
+  font-size: 10px;
+  margin-right: 5px;
+}
+.pie-col2 img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.pie-col3 {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 15px;
+}
+.f-arriba img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+}
+.f-abajo {
+  background: var(--gris-claro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.mini-btn {
+  width: 25px;
+  height: 25px;
+  background: var(--naranja);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 25px;
+  font-size: 12px;
+}
+
+/* BOTONES */
+.btn-naranja {
+  background: var(--naranja);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.btn-borde {
+  background: transparent;
+  border: 1px solid var(--naranja);
+  color: var(--naranja);
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 11px;
+}

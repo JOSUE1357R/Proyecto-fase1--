@@ -1,47 +1,63 @@
 :root {
-    --AZUL: rgb(41, 182, 246);
-    --FONDO: rgb(224, 242, 247);    
+    --CELESTE_PRINCIPAL: rgb(0, 123, 255);
+    --CELESTE_SUAVE: rgb(173, 216, 230);
+    --FONDO: rgb(245, 250, 255);
     --BLANCO: rgb(255, 255, 255);
-    --SOMBRA: rgba(0, 0, 0, 0.4);
-    --VERDE: rgb(76, 175, 80);
-    --ROJO: rgb(244, 67, 54);
+    --GRIS_CLARO: rgb(220, 220, 230);
+    --TEXTO_CLARO: rgb(120, 130, 150);
+    --SOMBRA: rgba(0, 123, 255, 0.15);
+    --VERDE: rgb(102, 187, 106);
+    --ROJO: rgb(239, 83, 80);
 }
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
-    font-family: Arial, sans-serif; 
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
     background: var(--FONDO);
     min-height: 100vh;
-}
-
-.panel {
     display: grid;
-    grid-template-columns: 100px 1fr;
-    min-height: 100vh;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+        "menu cabeza"
+        "menu datos_principales"
+        "menu datos_secundarios";
+    gap: 30px;
+    padding: 30px;
 }
 
 .menu {
-    background-color: var(--AZUL);
-    color: var(--BLANCO);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    grid-area: menu;
+    background-color: var(--BLANCO);
+    color: var(--TEXTO_CLARO);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "logo_area"
+        "nav_area"
+        "perfil_area";
     padding: 20px 0;
-    box-shadow: 5px 0 10px var(--SOMBRA);
-    border-right: 3px solid var(--BLANCO);
+    box-shadow: 2px 0 10px var(--SOMBRA);
+    border-right: 1px solid var(--GRIS_CLARO);
 }
 
 .logo {
-    font-size: 35px;
+    grid-area: logo_area;
+    font-size: 30px;
     font-weight: bold;
-    margin-bottom: 40px;
-    padding: 5px;
-    border: 3px solid var(--BLANCO);
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--CELESTE_PRINCIPAL);
+}
+
+.menu nav {
+    grid-area: nav_area;
+    align-self: start;
 }
 
 .menu nav ul {
@@ -52,227 +68,245 @@ body {
 
 .menu nav ul li a {
     display: block;
-    color: var(--BLANCO);
+    color: var(--TEXTO_CLARO);
     margin: 10px 0;
-    padding: 10px 0;
+    padding: 15px 0;
     text-decoration: none;
-    border-radius: 0;
     text-align: center;
-    font-weight: bold;
+    font-size: 20px;
 }
 
 .menu nav ul li a.activo {
-    background-color: var(--BLANCO);
-    color: var(--AZUL);
-    border: 1px dashed var(--AZUL);
+    color: var(--CELESTE_PRINCIPAL);
+    background: rgba(0, 123, 255, 0.05);
 }
 
 .perfil {
-    margin-top: auto;
+    grid-area: perfil_area;
+    align-self: end;
+    text-align: center;
     padding: 10px;
     font-size: 14px;
-    border: 2px solid var(--BLANCO);
-}
-
-.vista {
-    padding: 25px;
+    color: var(--TEXTO_CLARO);
 }
 
 .cabeza {
-    display: flex;
-    justify-content: space-between;
+    grid-area: cabeza;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "saludo_area busqueda_iconos_area";
     align-items: center;
-    margin-bottom: 30px;
-    background-color: var(--BLANCO);
-    padding: 15px;
-    border: 2px solid var(--AZUL);
-    box-shadow: 2px 2px 5px var(--SOMBRA);
 }
 
-.saludo h1 { font-size: 22px; color: #333; }
-.saludo p { font-size: 13px; color: #555; }
+.saludo {
+    grid-area: saludo_area;
+    color: var(--CELESTE_PRINCIPAL);
+}
+
+.saludo h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.saludo p {
+    font-size: 14px;
+    color: var(--TEXTO_CLARO);
+}
 
 .busqueda {
+    grid-area: busqueda_iconos_area;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .busqueda input {
-    border: 2px solid #ccc;
-    padding: 5px;
-    border-radius: 0;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
     outline: none;
-    width: 150px;
+    width: 250px;
+    background-color: var(--BLANCO);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .iconos {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
-    font-size: 12px;
+    font-size: 18px;
+    color: var(--TEXTO_CLARO);
 }
 
 .foto {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    background-color: #999; 
-    border: 2px solid var(--ROJO);
-}
-
-.seccion h2 {
-    font-size: 16px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--AZUL);
-    padding-bottom: 5px;
+    background-color: var(--CELESTE_SUAVE);
+    border: 2px solid var(--BLANCO);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .rejilla {
+    grid-area: datos_principales;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    gap: 15px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
 .rejilla2 {
+    grid-area: datos_secundarios;
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr; 
-    gap: 15px;
+    grid-template-columns: 1.5fr 1fr 2fr;
+    gap: 20px;
 }
 
 .columna {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .tarjeta {
     background: var(--BLANCO);
-    padding: 15px;
-    border-radius: 5px; 
-    box-shadow: 3px 3px 6px var(--SOMBRA); 
-    border: 1px solid #ddd; 
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px var(--SOMBRA);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .tasa {
-    background: var(--AZUL); 
+    background: linear-gradient(135deg, var(--CELESTE_SUAVE), var(--CELESTE_PRINCIPAL));
     color: var(--BLANCO);
-    box-shadow: 4px 4px 8px rgba(0,0,0,0.5); 
-    border: none;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
 }
 
 .superior {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .porcentaje {
-    padding: 3px 7px;
-    border-radius: 0;
+    padding: 4px 8px;
+    border-radius: 6px;
     font-size: 11px;
     font-weight: bold;
     color: var(--BLANCO);
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--GRIS_CLARO);
 }
 
-.positivo { background-color: var(--VERDE); }
-.negativo { background-color: var(--ROJO); }
+.positivo {
+    background-color: var(--VERDE);
+}
+
+.negativo {
+    background-color: var(--ROJO);
+}
 
 .valor {
-    font-size: 20px;
+    font-size: 28px;
     font-weight: bold;
     margin-top: 5px;
-}
-.detalle {
-    font-size: 11px;
-    color: #666;
+    color: var(--CELESTE_PRINCIPAL);
 }
 
-.tasa .valor { color: var(--BLANCO); 
+.detalle {
+    font-size: 13px;
+    color: var(--TEXTO_CLARO);
+    margin-top: 5px;
 }
-.tasa .detalle { color: var(--BLANCO);
-    
-     }
+
+.tasa .valor {
+    color: var(--BLANCO);
+}
+
+.tasa .detalle {
+    color: var(--BLANCO);
+    opacity: 0.8;
+}
 
 .circular {
-    background-color: var(--AZUL);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background: var(--CELESTE_PRINCIPAL);
     color: var(--BLANCO);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
 }
 
 .pastel {
     width: 100px;
     height: 100px;
+    margin: 0 auto 15px;
     border-radius: 50%;
-    background: conic-gradient(var(--BLANCO) 0% 72%, var(--ROJO) 72% 100%); 
+    background: conic-gradient(var(--VERDE) 0% 72%, var(--GRIS_CLARO) 72% 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
     border: 5px solid var(--BLANCO);
-    box-shadow: 2px 2px 5px var(--SOMBRA);
+    position: relative;
 }
 
 .pastel::before {
     content: '';
     position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
-    background: var(--FONDO);
+    background: var(--CELESTE_PRINCIPAL);
 }
 
 .texto {
     position: relative;
     z-index: 10;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    color: var(--AZUL);
+    color: var(--BLANCO);
 }
 
 .dato .monto {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: bold;
     color: var(--BLANCO);
-}
-.dato .label, .dato .subtexto {
-    color: var(--BLANCO);
-    opacity: 0.8;
-}
-
-.grafico {
-    display: flex;
-    align-items: flex-end;
-    height: 100px;
-    gap: 8px;
-    padding: 0 8px;
-    border-bottom: 3px solid var(--AZUL);
-    border-left: 3px solid var(--AZUL);
-    justify-content: space-around;
-}
-
-.barra {
-    width: 10%;
-    background-color: var(--VERDE);
-    border-radius: 0;
-    border: 1px solid var(--VERDE);
-}
-
-.historia button {
-    background-color: var(--AZUL);
-    color: var(--BLANCO);
-    border: 2px solid var(--AZUL);
-    padding: 5px 10px;
-    border-radius: 0;
-    cursor: pointer;
-    font-size: 12px;
     margin-top: 10px;
-    transition: none;
+}
+
+.dato .label,
+.dato .subtexto {
+    color: var(--BLANCO);
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+.barras .etiqueta {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--CELESTE_PRINCIPAL);
+}
+
+.barras .grafico img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--SOMBRA);
+}
+
+.barras .historia {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barras .historia button {
+    background: var(--CELESTE_PRINCIPAL);
+    color: var(--BLANCO);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
 }
